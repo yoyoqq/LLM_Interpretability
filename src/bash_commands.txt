@@ -1,0 +1,55 @@
+check if ssh key exists
+    ls -l ~/.ssh/id_rsa ~/.ssh/id_rsa.pub
+
+geenrate new ssh if needed
+    ssh-keygen -t rsa -b 4096 -C "your.email@kcl.ac.uk"
+
+add ssh key to portal
+    cat ~/.ssh/id_rsa.pub
+
+check permissions
+    chmod 600 ~/.ssh/id_rsa
+    chmod 644 ~/.ssh/id_rsa.pub
+
+
+connect agin: 
+    ssh k24086575@hpc.create.kcl.ac.uk
+
+
+mkdir 
+
+
+https://vscode-sv3.create.kcl.ac.uk/
+
+
+https://docs.er.kcl.ac.uk/CREATE/access/#connecting-to-create-hpc-using-ssh-on-windows
+
+ceph_quota
+
+sinfo -> gpu ? 
+
+send data from local to HPC : scp -o MACs=hmac-sha2-512 hello_world.sh create:/users/k1234567/hello_world.sh
+
+get data: 
+    scp -o MACs=hmac-sha2-512 create:/scratch/users/k24086575/hello_world.er ./hello_world.er
+    scp -r -o MACs=hmac-sha2-512 create:/users/k24086575/inf_narrative_msc/k24086575/datasets ./
+    scp -r -o MACs=hmac-sha2-512 create:/users/k24086575/inf_narrative_msc/k24086575/datasets/dot_product/steered ./
+
+
+Memory of each:
+    # From inside the directory you care about:
+    du -ah --max-depth=1
+
+
+
+
+
+pwd
+
+interactive session 
+    srun -p cpu --cpus-per-task=4 --mem=8G --time=2:00:00 --pty /bin/bash -l
+
+
+
+mount -o remount,rw /inf_narrative_msc
+    must be superuser to use mount 
