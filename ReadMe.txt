@@ -1,51 +1,41 @@
-Visualization and analysis of Neurons in LLM for multi skill tasks
+🔍 LLM Interpretability Research
 
+This repository contains my MSc Artificial Intelligence dissertation project at King’s College London, focused on neuron-level interpretability of Large Language Models (LLMs). The project explores how Sparse Autoencoders (SAEs) and probing techniques can uncover skill-specialized neurons and improve trust, safety, and controllability of modern LLMs.
 
-This project investigates function-specialized neurons in Large Language Models (LLMs) by leveraging Sparse Autoencoders (SAEs) and prompt-based skill activation. The goal is to identify, interpret, and steer neurons associated with various cognitive or emotional skills across multiple domains such as math, programming, empathy, and general knowledge (MMLU).
+📌 Project Overview
 
-🔍 Key Features
-Neuron Activation Collection:
-Extracts the top 3 neuron activations per token across residual (res), attention (att), and MLP (mlp) SAEs for 26 layers.
+Goal: Investigate neuron activations in LLMs to identify how models represent tasks like math, programming, law/policy, empathetic dialogue, and emotions.
 
-Within-Class Analysis:
-Evaluates neuron co-activations for skill pairs.
+Approach:
 
-Between-Class Analysis:
-Compares entire datasets like programming vs math using Jaccard, cosine, Pearson, and Spearman similarities.
+Train and apply Sparse Autoencoders (SAEs) to compress high-dimensional activations.
 
-Auto Interpretation:
-Queries Neuronpedia or preprocessed JSONL dumps to attach explanations to each neuron ID.
+Analyze neuron clusters and contributions across multiple tasks.
 
-LLM-Based Skill Classification:
-Prompts an LLM to determine if a neuron’s explanation corresponds to a specific skill or class.
+Experiment with neuron steering (adding decoder vectors to residual streams) to test controllability.
 
-Neuron Steering:
-Applies vector-based neuron interventions to verify if firing a neuron changes the model’s output.
+Build scalable pipelines for data curation, probing, and visualization.
 
+Scale:
 
-| Dataset              | Skills Represented                       | Size  |
-| -------------------- | ---------------------------------------- | ----- |
-| Math                 | algebra, geometry, number theory, etc    | 5,000 |
-| Programming          | easy, medium, hard, external, etc        | 5,000 |
-| Empathetic Dialogues | sad, happy, angry, joyful, anxious, etc. | 5,000 |
-| MMLU                 | law, philosophy, biology, logic, etc.    | 5,000 |
+20M activations processed
 
+1M+ neurons analyzed
 
-📊 Visualization & Metrics
-Dot product heatmaps (between/within class)
-Line plots by layer
-Cosine, Jaccard, Pearson, and Spearman metrics
-Activation frequency histograms
-Skill overlap analysis per dataset
+78 models tested
 
-🛠️ Installation
-Create a Python environment and install all dependencies:
-pip install -r dependencies.txt
+100+ GPU hours optimized with parallelization
 
-⚙️ Reproducibility
-All experiments run on Gemma 2B with 16K-width SAEs
-Visualization and steering are reproducible using the provided notebooks
-Neuronpedia auto interpret data stored as a .csv (not included due to size)
-Full results & charts are documented in the report PDF
+⚙️ Tech Stack
 
-Access to the dataset: https://www.kaggle.com/datasets/yagolxuchen/llm-interpretability-research
+Core: Python, PyTorch, HuggingFace Transformers
+
+Interpretability: SAELens
+
+📊 Results
+
+Identified overlapping neuron groups specialized in reasoning, programming, and emotion detection.
+
+Demonstrated controllability by steering neuron activations to shift model outputs.
+
+Built a reproducible interpretability pipeline, supporting ongoing research into trustworthy AI.
