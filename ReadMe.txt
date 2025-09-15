@@ -1,41 +1,54 @@
-🔍 LLM Interpretability Research
+# 🧠 LLM Interpretability
 
-This repository contains my MSc Artificial Intelligence dissertation project at King’s College London, focused on neuron-level interpretability of Large Language Models (LLMs). The project explores how Sparse Autoencoders (SAEs) and probing techniques can uncover skill-specialized neurons and improve trust, safety, and controllability of modern LLMs.
+Exploring how **Large Language Models (LLMs)** think at the **neuron level** using  
+**Sparse Autoencoders (SAEs), probing, and steering techniques**.  
+Built as part of my MSc Artificial Intelligence dissertation at **King’s College London**.
 
-📌 Project Overview
+---
 
-Goal: Investigate neuron activations in LLMs to identify how models represent tasks like math, programming, law/policy, empathetic dialogue, and emotions.
+## ✨ Highlights
+- 🔍 Analyzed **20M+ activations** across GPT-2, Gemma-2B, and other models  
+- 🧩 Identified **skill-specialized neuron groups** (math, programming, emotions, law/policy)  
+- 🎛️ Tested **neuron steering** to shift model behavior in controlled ways  
+- ⚡ Optimized HPC workflows (**100+ GPU hours**) using SLURM & parallel pipelines  
 
-Approach:
+---
 
-Train and apply Sparse Autoencoders (SAEs) to compress high-dimensional activations.
+## ⚙️ Tech Stack
+- **Core:** Python, PyTorch, HuggingFace  
+- **Interpretability:** SAELens, custom probing scripts  
+- **Infra:** Linux, SLURM, A100/V100/RTX3090 GPUs  
+- **Data:** Pandas, FAISS, Azure AI Search  
+- **Viz:** Matplotlib, Seaborn, custom neuron plots  
 
-Analyze neuron clusters and contributions across multiple tasks.
+---
 
-Experiment with neuron steering (adding decoder vectors to residual streams) to test controllability.
+## 📂 Project Structure
+📦 LLM_Interpretability
+┣ 📂 data/ # Sample datasets & embeddings
+┣ 📂 notebooks/ # Jupyter notebooks (exploration & plots)
+┣ 📂 src/ # Core pipeline: curation, probing, steering
+┣ 📂 results/ # Logs, figures, neuron clusters
+┣ 📂 slurm_scripts/ # HPC job submission templates
+┗ 📜 README.md
 
-Build scalable pipelines for data curation, probing, and visualization.
 
-Scale:
 
-20M activations processed
+---
 
-1M+ neurons analyzed
+## 🚀 Quick Start
 
-78 models tested
+```bash
+# 1. Clone repo
+git clone https://github.com/yoyoqq/LLM_Interpretability.git
+cd LLM_Interpretability
 
-100+ GPU hours optimized with parallelization
+# 2. Install dependencies
+pip install -r requirements.txt
 
-⚙️ Tech Stack
+# 3. Run an activation extraction example
+python src/extract_activations.py --model gpt2 --dataset data/mmlu.json
 
-Core: Python, PyTorch, HuggingFace Transformers
 
-Interpretability: SAELens
-
-📊 Results
-
-Identified overlapping neuron groups specialized in reasoning, programming, and emotion detection.
-
-Demonstrated controllability by steering neuron activations to shift model outputs.
-
-Built a reproducible interpretability pipeline, supporting ongoing research into trustworthy AI.
+For HPC (SLURM) runs:
+sbatch slurm_scripts/run_pipeline.sh
