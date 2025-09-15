@@ -3,7 +3,7 @@
 Exploring how **Large Language Models (LLMs)** think at the **neuron level** using  
 **Sparse Autoencoders (SAEs), probing, and steering techniques**.  
 Built as part of my MSc Artificial Intelligence dissertation at **King’s College London**.
-
+ 
 ---
 
 ## ✨ Highlights
@@ -52,3 +52,4 @@ python src/extract_activations.py --model gpt2 --dataset data/mmlu.json
 
 For HPC (SLURM) runs:
 sbatch slurm_scripts/run_pipeline.sh
+
